@@ -81,4 +81,19 @@ Follow these steps to set up and run the ChatterboxToolkitUI on your local machi
 
 
 
+## 🙏 Acknowledgments
+
+Big thanks to the original creators of Chatterbox:
+👉 [Resemble AI](https://github.com/resemble-ai) for their groundbreaking work in controllable TTS.
+
+---
+
+## 📜 License
+
+This project is provided under the original license of the upstream [chatterbox](https://github.com/resemble-ai/chatterbox). Check their repository for licensing details.
+
+```
+
+Let me know if you’d like a more developer-focused or user-focused version!
+```
 
