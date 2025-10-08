@@ -1,10 +1,51 @@
-# ChatterboxToolkitUI 🎙️🧠
+[Paxurux ✅ Chatter-box-dubbing](https://github.com/Paxurux/chatter-box-dubbing)
 
-ChatterboxToolkitUI is a comprehensive web application built with Gradio that provides a user-friendly interface for advanced audio generation and workflow management using resemble-ai's Chatterbox model.
 
-## Key Features
+The owner of this open source project is the one at the link below:
+https://github.com/Paxurux/chatter-box-dubbing
 
--   **Centralized Project Management**: Create, select, and manage dedicated workspaces. All inputs, processed files, and generated outputs are automatically organized into a clean folder structure within the active project or a base directory.
+
+
+
+
+
+
+NZG Official - Stable Version of chatter-box-dubbing
+This repository is a modified and stable copy of the
+ original project, [ChatterboxToolkitUI](https://github.com/dasjoms/ChatterboxToolkitUI/tree/master)
+
+🛑 Important Explanation: Reason for Re-uploading this Code
+
+
+I, the owner of NZG Official, sincerely apologize to the original code owner, [dasjoms ](https://github.com/dasjoms)
+
+ (( ✅ [ChatterboxToolkitUI](https://github.com/dasjoms/ChatterboxToolkitUI/tree/master) ✅), and wish to clarify that my intention is not in any way to infringe upon your copyright or claim ownership of your work.
+I decided to download your repository and re-upload it to my account solely due to personal need and technical constraints:
+ * PC Limitations: I do not have a powerful enough (PC 😭 😔) to run the code you release locally. My computer is very old and lacks a suitable graphics card.
+ * Colab Usage: My primary need is to use this code in the ⚡[Google Colab ](https://colab.research.google.com/drive/16HI1ZW3GrrG0QUmeGvV79yoiaKCVNfxs?usp=sharing#scrollTo=SBubttdzrVBW) ⚡
+    environment.
+ * Updates Conflict: When you release a new update or feature in the original repository, that new code often conflicts or stops working with my existing Colab setup.
+ * My Goal: Therefore, I uploaded a stable version here for personal use so I can maintain a version of the code that runs continuously in Colab without constant daily fixing.
+
+
+🔗 Original Source and Credit
+
+All credit and gratitude for the original project belong to its true creator, (✅ [dasjoms ](https://github.com/dasjoms) ✅)
+
+ * ✅ Original Repository Link: [https://github.com/dasjoms](https://github.com/dasjoms/ChatterboxToolkitUI/tree/master)
+ * License: [ Please refer to the original repository's license]
+
+I value your work and am using this copy only out of necessity.
+
+✉📩📧 Contact and Assurance of Immediate Action
+If you have any objection or legal concern regarding my upload of this repository, and you wish to issue a strike, please contact me before taking any action. I will immediately remove these files upon your request.
+
+Contact Email: nzgnzg73@gmail.com
+
+Thank you very much for your understanding and cooperation.
+
+
+
 
 -   **Single Generation**:
     -   **Text-to-Speech (TTS)**: Generate high-quality speech from text using a reference audio file to clone the speaker's voice.
@@ -38,69 +79,6 @@ Before you begin, ensure you have the following installed on your system:
 
 Follow these steps to set up and run the ChatterboxToolkitUI on your local machine or use the ChatterboxToolkitUI.ipynb to run it in a colab environment.
 
-### 1. Clone the Repository
-
-Open your terminal or command prompt and clone the repository.
-
-```bash
-git clone https://github.com/dasjoms/ChatterboxToolkitUI.git
-cd ChatterboxToolkitUI
-```
-
-### 2. Set Up a Python Virtual Environment
-
-Create a virtual environment using python 3.11 to avoid dependency conflicts.
-
-```bash
-py -3.11 -m venv toolkit
-```
-Activate the virtual environment.
-
-```bash
-.\toolkit\Scripts\activate
-```
 
 
 
-### 3. Install the Project and Dependencies
-
-Users with 10 series NVidia cards or AMD GPUs need to manually install the proper torch 2.6.0 versions.
-Otherwise just install from requirements.txt
-
-```bash
-pip install -r requirements.txt
-```
-
-
-## Running the Application
-
-With your virtual environment still active, run the script:
-
-```bash
-python ChatterboxToolkitUI.py
-```
-
-Once running, you will see output in your terminal like this:
-
-```
-* Running on local URL:  http://127.0.0.1:7860
-```
-
-Open the local URL in your web browser to use the application.
-
-## A Typical Workflow
-
-1.  **Create a Project**: Navigate to the "Projects" tab and create a new project.
-2.  **Prepare Data**:
-    -   Upload a long text file to the project's `input_files` folder using the "Project Utilities" uploader or manually move it there.
-    -   Go to the "Data Preparation" tab to split the text into manageable chunks. The outputs will be saved to the `processed_text/` folders.
-3.  **Generate Audio**:
-    -   Go to the "Batch Generation" tab.
-    -   Load your processed files from the project.
-    -   Select a reference voice and your desired parameters.
-    -   Run the batch generation.
-4.  **Review & Refine**:
-    -   Go to the "Edit Project Data" tab.
-    -   Use the "Regenerate" sub-tab to listen to your outputs. If one is imperfect, send it to the Single TTS tab, tweak the parameters, and replace it.
-    -   Use the "Edit Text" sub-tab to fix any pronounciation issues you find in your source text chunks.
-    -   Concatenate all audio files into one.
