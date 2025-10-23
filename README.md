@@ -60,28 +60,6 @@ return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 5. Save the file and run your program again.
 ✅ It will now work offline — no internet or HuggingFace connection needed.
-
-
-
-
----
-
-🧰 Method 2 — Use a Config Variable
-
-If you plan to share with many users:
-
-Store the folder path in a variable, e.g.:
-
-MODEL_DIR = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59")
-
-Then use:
-
-local_path = MODEL_DIR / fpath
-
-
-This way, other users can just change one line to match their model folder.
-
-
 ---
 
 🟩 اردو میں وضاحت
