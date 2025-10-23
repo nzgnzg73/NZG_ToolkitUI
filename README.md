@@ -26,6 +26,23 @@ I decided to download your repository and re-upload it to my account solely due 
     environment.
  * Updates Conflict: When you release a new update or feature in the original repository, that new code often conflicts or stops working with my existing Colab setup.
 
+🔗 Original Source and Credit
+
+All credit and gratitude for the original project belong to its true creator, (✅ [dasjoms ](https://github.com/dasjoms) ✅)
+
+ * ✅ Original Repository Link: [https://github.com/dasjoms](https://github.com/dasjoms/ChatterboxToolkitUI/tree/master)
+ * License: [ Please refer to the original repository's license]
+
+I value your work and am using this copy only out of necessity.
+
+✉📩📧 Contact and Assurance of Immediate Action
+If you have any objection or legal concern regarding my upload of this repository, and you wish to issue a strike, please contact me before taking any action. I will immediately remove these files upon your request.
+
+Contact Email: nzgnzg73@gmail.com
+
+Thank you very much for your understanding and cooperation.
+
+
 
 ## &#128279; Citation of the paper
 
@@ -167,23 +184,6 @@ return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 
  * My Goal: Therefore, I uploaded a stable version here for personal use so I can maintain a version of the code that runs continuously in Colab without constant daily fixing.
-
-
-🔗 Original Source and Credit
-
-All credit and gratitude for the original project belong to its true creator, (✅ [dasjoms ](https://github.com/dasjoms) ✅)
-
- * ✅ Original Repository Link: [https://github.com/dasjoms](https://github.com/dasjoms/ChatterboxToolkitUI/tree/master)
- * License: [ Please refer to the original repository's license]
-
-I value your work and am using this copy only out of necessity.
-
-✉📩📧 Contact and Assurance of Immediate Action
-If you have any objection or legal concern regarding my upload of this repository, and you wish to issue a strike, please contact me before taking any action. I will immediately remove these files upon your request.
-
-Contact Email: nzgnzg73@gmail.com
-
-Thank you very much for your understanding and cooperation.
 
 
 
