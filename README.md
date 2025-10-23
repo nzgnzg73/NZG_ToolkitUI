@@ -25,6 +25,123 @@ I decided to download your repository and re-upload it to my account solely due 
  * Colab Usage: My primary need is to use this code in the ⚡[Google Colab ](https://colab.research.google.com/drive/16HI1ZW3GrrG0QUmeGvV79yoiaKCVNfxs?usp=sharing#scrollTo=SBubttdzrVBW) ⚡ [Kaggle](https://www.kaggle.com/code/core73/new-nzg-toolkitui-kaggle) ⚡
     environment.
  * Updates Conflict: When you release a new update or feature in the original repository, that new code often conflicts or stops working with my existing Colab setup.
+
+
+## &#128279; Citation of the paper
+
+```bibtex
+🔧 Method 1 — Manually Edit the Code
+
+1. Open the file:
+vc.py
+(You’ll find this file inside your Chatterbox or TTS project folder.)
+
+
+2. Find the method:
+
+def from_pretrained(cls, device, s3gen_cfg: Optional[DictConfig] = None):
+
+
+3. Inside this method, remove the original lines:
+
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+
+
+4. Replace them with this code:
+
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    print(f"Offline mode: using local file {fpath}")
+    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← your model path
+
+# Pass the s3gen_cfg to from_local
+return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
+
+
+5. Save the file and run your program again.
+✅ It will now work offline — no internet or HuggingFace connection needed.
+
+
+
+
+---
+
+🧰 Method 2 — Use a Config Variable
+
+If you plan to share with many users:
+
+Store the folder path in a variable, e.g.:
+
+MODEL_DIR = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59")
+
+Then use:
+
+local_path = MODEL_DIR / fpath
+
+
+This way, other users can just change one line to match their model folder.
+
+
+---
+
+🟩 اردو میں وضاحت
+
+🔧 طریقہ نمبر 1 — کوڈ میں خود تبدیلی کرنا
+
+1. فائل vc.py کھولو۔
+یہ فائل تمہارے Chatterbox / TTS پراجیکٹ کے فولڈر میں ہوگی۔
+
+
+2. اس فنکشن کو تلاش کرو:
+
+def from_pretrained(cls, device, s3gen_cfg: Optional[DictConfig] = None):
+
+
+3. اس کے اندر جو پرانا کوڈ ہے، یہ لائنیں:
+
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+
+— انہیں ڈیلیٹ کر دو۔
+
+
+4. ان کی جگہ یہ نیا کوڈ پیسٹ کرو:
+
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    print(f"Offline mode: using local file {fpath}")
+    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
+
+# Pass the s3gen_cfg to from_local
+return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
+
+
+5. فائل کو Save کر دو اور دوبارہ چلاؤ۔
+✅ اب یہ سسٹم آف لائن بھی چلے گا، انٹرنیٹ کے بغیر۔
+
+
+
+
+---
+
+🧰 طریقہ نمبر 2 — سب کے لیے آسان طریقہ
+
+اگر تم یہ دوسروں کو دینا چاہتے ہو تو:
+
+1. فولڈر کا پاتھ ایک variable میں رکھ دو:
+
+MODEL_DIR = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59")
+
+
+2. پھر نیچے یہ استعمال کرو:
+
+local_path = MODEL_DIR / fpath
+```
+
+## &#128101; Attributions
+
+
+
+
  * My Goal: Therefore, I uploaded a stable version here for personal use so I can maintain a version of the code that runs continuously in Colab without constant daily fixing.
 
 
