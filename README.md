@@ -117,24 +117,6 @@ return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 5. فائل کو Save کر دو اور دوبارہ چلاؤ۔
 ✅ اب یہ سسٹم آف لائن بھی چلے گا، انٹرنیٹ کے بغیر۔
-
-
-
-
----
-
-🧰 طریقہ نمبر 2 — سب کے لیے آسان طریقہ
-
-اگر تم یہ دوسروں کو دینا چاہتے ہو تو:
-
-1. فولڈر کا پاتھ ایک variable میں رکھ دو:
-
-MODEL_DIR = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59")
-
-
-2. پھر نیچے یہ استعمال کرو:
-
-local_path = MODEL_DIR / fpath
 ```
 
 ## &#128101; Attributions
