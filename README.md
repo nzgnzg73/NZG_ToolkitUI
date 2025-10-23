@@ -38,31 +38,57 @@ NZG_ToolkitUI\src\chatterbox
 vc.py / tts.py
 
 
-(You’ll find this file inside your Chatterbox or TTS project folder.)
 
 
-2. Find the method:
-
-def from_pretrained(cls, device, s3gen_cfg: Optional[DictConfig] = None):
+2. Inside this method, remove the original lines:
 
 
-3. Inside this method, remove the original lines:
+tts.py File coding
+
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+
+
+
+
+
+# vc.py File coding
 
 for fpath in ["s3gen.safetensors", "conds.pt"]:
     local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
 
 
-4. Replace them with this code:
+3. Replace them with this code:
+
+
+
+
+
+# tts.py File coding Update
+
+
+
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            print(f"Offline mode: using local file {fpath}")
+            local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
+
+        return cls.from_local(Path(local_path).parent, device
+
+
+
+
+# vc.py File coding Update
 
 for fpath in ["s3gen.safetensors", "conds.pt"]:
     print(f"Offline mode: using local file {fpath}")
-    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← your model path
+    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
 
 # Pass the s3gen_cfg to from_local
 return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 
-5. Save the file and run your program again.
+
+4. Save the file and run your program again.
 ✅ It will now work offline — no internet or HuggingFace connection needed.
 ---
 
@@ -70,16 +96,26 @@ return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 🔧 طریقہ نمبر 1 — کوڈ میں خود تبدیلی کرنا
 
+
 1. فائل vc.py کھولو۔
 یہ فائل تمہارے Chatterbox / TTS پراجیکٹ کے فولڈر میں ہوگی۔
 
 
-2. اس فنکشن کو تلاش کرو:
-
-def from_pretrained(cls, device, s3gen_cfg: Optional[DictConfig] = None):
-
-
 3. اس کے اندر جو پرانا کوڈ ہے، یہ لائنیں:
+
+
+
+NZG_ToolkitUI\src\chatterbox
+vc.py / tts.py
+
+tts.py File coding
+
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+
+
+
+*vc.py* File coding 
 
 for fpath in ["s3gen.safetensors", "conds.pt"]:
     local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
@@ -89,12 +125,36 @@ for fpath in ["s3gen.safetensors", "conds.pt"]:
 
 4. ان کی جگہ یہ نیا کوڈ پیسٹ کرو:
 
+
+
+# tts.py File coding Update
+
+
+
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            print(f"Offline mode: using local file {fpath}")
+            local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
+
+        return cls.from_local(Path(local_path).parent, device
+
+
+
+
+# vc.py File coding Update
+
 for fpath in ["s3gen.safetensors", "conds.pt"]:
     print(f"Offline mode: using local file {fpath}")
     local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
 
 # Pass the s3gen_cfg to from_local
 return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
+
+
+
+
+
+
+
 
 
 5. فائل کو Save کر دو اور دوبارہ چلاؤ۔
