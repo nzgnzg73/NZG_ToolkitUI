@@ -168,19 +168,74 @@ return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 
 
-
-
-
-
-
-
 5. فائل کو Save کر دو اور دوبارہ چلاؤ۔
 ✅ اب یہ سسٹم آف لائن بھی چلے گا، انٹرنیٹ کے بغیر۔
 ```
 
 ## &#128101; Attributions
 
+### 1. Clone the Repository
 
+Open your terminal or command prompt and clone the repository.
+
+```bash
+git clone https://github.com/dasjoms/ChatterboxToolkitUI.git
+cd ChatterboxToolkitUI
+```
+### 1. Clone the Repository
+
+
+### 2. Set Up a Python Virtual Environment
+
+Create a virtual environment using python 3.11 to avoid dependency conflicts
+
+```bash
+py -3.10 -m venv venv
+
+```
+
+[dPython 3.10.11](https://www.python.org/downloads/release/python-31011/)
+
+
+### 3. Activate the virtual environment.
+
+```bash
+
+venv\scripts\activate
+
+```
+### 4. Install the Project and Dependencies
+
+Users with 10 series NVidia cards or AMD GPUs need to manually install the proper torch 2.6.0 versions.
+Otherwise just install from requirements.txt
+
+```bash
+pip install -r requirements.txt
+```
+
+### 5. Install Omegaconf
+
+Users with 10 series NVidia cards or AMD GPUs need to manually install the proper torch 2.6.0 versions.
+Otherwise just install from requirements.txt
+
+```bash
+pip install omegaconf
+```
+## Running the Application
+
+With your virtual environment still active, run the script:
+
+```bash
+python ChatterboxToolkitUI.py
+```
+
+Once running, you will see output in your terminal like this:
+
+```
+* Running on local URL:  http://127.0.0.1:7860
+```
+
+Open the local URL in your web browser to use the application.
 
 
  * My Goal: Therefore, I uploaded a stable version here for personal use so I can maintain a version of the code that runs continuously in Colab without constant daily fixing.
