@@ -44,134 +44,6 @@ Thank you very much for your understanding and cooperation.
 
 
 
-## &#128279; FIX
-
-```bibtex
-🔧 Method 1 — Manually Edit the Code
-
-1. Open the file:
-
-NZG_ToolkitUI\src\chatterbox
-vc.py / tts.py
-
-
-
-
-2. Inside this method, remove the original lines:
-
-```bash
-tts.py File coding
-
-for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
-            local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
-```
-
-
-```bash
-# vc.py File coding
-
-for fpath in ["s3gen.safetensors", "conds.pt"]:
-    local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
-```
-
-## 3. Replace them with this code:
-
-
-
-
-```bash
-# tts.py File coding Update
-
-
-
-for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
-            print(f"Offline mode: using local file {fpath}")
-            local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
-
-        return cls.from_local(Path(local_path).parent, device
-```
-
-
-```bash
-# vc.py File coding Update
-
-for fpath in ["s3gen.safetensors", "conds.pt"]:
-    print(f"Offline mode: using local file {fpath}")
-    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
-```
-
-# Pass the s3gen_cfg to from_local
-return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
-
-
-
-4. Save the file and run your program again.
-✅ It will now work offline — no internet or HuggingFace connection needed.
----
-
-🟩 اردو میں وضاحت
-
-🔧 طریقہ نمبر 1 — کوڈ میں خود تبدیلی کرنا
-
-
-1. فائل vc.py کھولو۔
-یہ فائل تمہارے Chatterbox / TTS پراجیکٹ کے فولڈر میں ہوگی۔
-
-
-3. اس کے اندر جو پرانا کوڈ ہے، یہ لائنیں:
-
-
-
-NZG_ToolkitUI\src\chatterbox
-vc.py / tts.py
-
-tts.py File coding
-
-for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
-            local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
-
-
-
-*vc.py* File coding 
-
-for fpath in ["s3gen.safetensors", "conds.pt"]:
-    local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
-
-— انہیں ڈیلیٹ کر دو۔
-
-
-4. ان کی جگہ یہ نیا کوڈ پیسٹ کرو:
-
-
-
-# tts.py File coding Update
-
-
-
-for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
-            print(f"Offline mode: using local file {fpath}")
-            local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
-
-        return cls.from_local(Path(local_path).parent, device
-
-
-
-
-# vc.py File coding Update
-
-for fpath in ["s3gen.safetensors", "conds.pt"]:
-    print(f"Offline mode: using local file {fpath}")
-    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
-
-# Pass the s3gen_cfg to from_local
-return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
-
-
-
-5. فائل کو Save کر دو اور دوبارہ چلاؤ۔
-✅ اب یہ سسٹم آف لائن بھی چلے گا، انٹرنیٹ کے بغیر۔
-```
-
 ## &#128101; Attributions
 
 ### 1. Clone the Repository
@@ -319,8 +191,194 @@ Once running, you will see output in your terminal like this:
 Open the local URL in your web browser to use the application.
 
 
+## OFFLINE MODEL FIX 
+
+I want to know which method you have told me. For example, if there is a problem with the model, or if you want to run it without the net, some computers have this problem that they go to the net, that is, they will work only if the net is up. If the net is down, the problem is not solved. For example, you did not run your net and it worked fine for two or three days, but on the fourth day it broke down and it started giving strange errors that you do not understand. You are getting this problem again and again and it will ask you to download the model again, but you did not download the model again. Go to the models that you already have downloaded, and which are lying in a specific place on the (('C:\Users\Nomi\.cache\huggingface\hub\models--ResembleAI--chatterbox')) drive, and look at them. Then you have to use the same method that I have told below. This method works 100 percent.  I also had this problem, when my network would go down and errors would start appearing, and I would be asked to reinstall it over and over again, even though the models were already downloaded. Once I adopted this method, this problem never occurred again.
 
 
+میں جاننا چاہتا ہوں کہ آپ نے مجھے جو طریقہ بتایا ہے، وہ کون سا طریقہ ہے۔ مثال کے طور پر، اگر ماڈل میں کوئی مسئلہ آ جائے، یا اگر آپ اسے نیٹ کے بغیر چلانا چاہتے ہیں، تو بعض کمپیوٹرز میں یہ مسئلہ آ جاتا ہے کہ وہ نیٹ پر چلے جاتے ہیں، یعنی نیٹ چلے گا تو ہی کام کریں گے۔ اگر نیٹ بند ہو جائے تو مسئلہ حل نہیں ہوتا۔ مثال کے طور پر، آپ نے اپنا نیٹ نہیں چلایا اور یہ دو تین دن صحیح چلا، مگر چوتھے دن خراب ہو گیا اور اس میں عجیب قسم کے ایرر آنے لگے جن کی آپ کو سمجھ نہیں آ رہی۔ یہ مسئلہ آپ کو بار بار آ رہا ہے اور یہ آپ سے کہے گا کہ ماڈل دوبارہ ڈاؤن لوڈ کریں، مگر آپ نے ماڈل دوبارہ ڈاؤن لوڈ نہیں کرنے۔ جو ماڈلز آپ کے پاس پہلے ہی سے ڈاؤن لوڈ شدہ موجود ہیں، اور جو  (('C:\Users\Nomi\.cache\huggingface\hub\models--ResembleAI--chatterbox')) ڈرائیو کی مخصوص جگہ پر پڑے ہوتے ہیں، وہاں جا کر انہیں دیکھ لینا ہے۔ پھر آپ نے وہی طریقہ استعمال کرنا ہے جو میں نے نیچے بتایا۔ یہ طریقہ 100 فیصد کام کرتا ہے۔ مجھے بھی یہ مسئلہ آتا تھا، جب میرا نیٹ ورک بند ہو جاتا تھا اور ایرر آنے لگتے تھے، اور مجھ سے بار بار اسے دوبارہ انسٹال کرنے کے لیے کہا جاتا تھا، حالانکہ ماڈلز پہلے ہی سے ڈاؤن لوڈ ہو کر پڑے ہوئے تھے۔ جب میں نے یہ طریقہ اپنایا، تو اس کے بعد یہ مسئلہ کبھی نہیں آیا۔
+
+## &#128279; FIX
+
+```bibtex
+🔧 Method 1 — Manually Edit the Code
+
+1. Open the file:
+
+NZG_ToolkitUI\src\chatterbox
+vc.py / tts.py
+
+
+```
+
+## 2. Inside this method remove the original lines
+
+
+
+```bash
+tts.py File coding
+
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+```
+
+
+```bash
+# vc.py File coding
+
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+```
+
+## 3. Replace them with this code:
+
+
+
+
+
+# tts.py File coding Update
+```bash
+
+
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            print(f"Offline mode: using local file {fpath}")
+            local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
+
+        return cls.from_local(Path(local_path).parent, device
+```
+
+
+
+# vc.py File coding Update
+```bash
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    print(f"Offline mode: using local file {fpath}")
+    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
+```
+
+# Pass the s3gen_cfg to from_local
+return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
+
+
+
+4. Save the file and run your program again.
+✅ It will now work offline — no internet or HuggingFace connection needed.
+---
+
+🟩 اردو میں وضاحت
+
+🔧 طریقہ نمبر 1 — کوڈ میں خود تبدیلی کرنا
+
+
+1. فائل vc.py کھولو۔
+یہ فائل تمہارے Chatterbox / TTS پراجیکٹ کے فولڈر میں ہوگی۔
+
+
+3. اس کے اندر جو پرانا کوڈ ہے، یہ لائنیں:
+
+
+
+NZG_ToolkitUI\src\chatterbox
+vc.py / tts.py
+
+## tts.py File coding
+```bash
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+```
+
+
+## vc.py File coding 
+```bash
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+```
+— انہیں ڈیلیٹ کر دو۔
+
+
+4. ان کی جگہ یہ نیا کوڈ پیسٹ کرو:
+
+
+
+# tts.py File coding Update
+
+
+```bash
+for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
+            print(f"Offline mode: using local file {fpath}")
+            local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
+
+        return cls.from_local(Path(local_path).parent, device
+```
+
+
+
+# vc.py File coding Update
+```bash
+for fpath in ["s3gen.safetensors", "conds.pt"]:
+    print(f"Offline mode: using local file {fpath}")
+    local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
+```
+
+# Pass the s3gen_cfg to from_local
+return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
+
+
+
+5. فائل کو Save کر دو اور دوبارہ چلاؤ۔
+✅ اب یہ سسٹم آف لائن بھی چلے گا، انٹرنیٹ کے بغیر۔
+```
+
+If you want to use your model on a local URL instead of a public URL, for example if you are working 20 or 200 km away, you will need to follow the links and procedures below.
+To do this, you will also need to change the coding in a file, as described below. You will need to remove this code in the file:
+> python ChatterboxToolkitUI.py 
+```bash
+if __name__ == "__main__":
+    demo.queue().launch()
+```
+
+## and replace it with this code:
+
+```bash
+> if __name__ == "__main__":
+    demo.queue().launch(share=False,server_name="0.0.0.0")
+
+```
+
+
+اگر آپ اپنے ماڈل کو پبلک (عوامی) URL کے بجائے لوکل (مقامی) URL پر استعمال کرنا چاہتے ہیں، مثال کے طور پر اگر آپ 20 یا 200 کلومیٹر کے فاصلے پر کام کر رہے ہوں، تو آپ کو نیچے دیے گئے لنکس اور طریقہ کار پر عمل کرنا پڑے گا۔
+اس کے لیے آپ کو ایک فائل میں کوڈنگ بھی تبدیل کرنی ہو گی، جیسا کہ نیچے بتایا گیا ہے۔ آپ کو فائل میں موجود یہ کوڈ:
+> python ChatterboxToolkitUI.py
+
+```bash
+if __name__ == "__main__":
+    demo.queue().launch()
+```
+
+
+
+
+## کو ہٹا کر اس کی جگہ یہ کوڈ شامل کرنا ہے  
+
+
+
+```bash
+> if __name__ == "__main__":
+    demo.queue().launch(share=False,server_name="0.0.0.0")
+
+```
+
+The links I have given you below are for you to download, if you don't download them, you won't get this local public URL. Okay, you have to do one more thing. You have to get a small wireless device that is installed inside the computer. You will have to get that small wireless device. Or you won't have to get this thing inside the laptop. You will only have to get it for the PC. Okay, the laptop itself has a hotspot system, the PC doesn't. The PC has a network chip installed inside the PC. Then you don't have to get this USB wireless device. Okay.
+
+نیچے جو میں نے اپ کو لنک دیے ہیں فیلوں کو اس کو لازمی اپ نے ڈاؤن لوڈ کرنا ہے نہ ڈاؤن لوڈ کرو گے تو یہ لوکل پبلک یو ار ایل نہیں اپ کو ملے گا ٹھیک ہے اپ کو ایک اور بھی کام کرنا ہوگا اپ کو ایک چھوٹی سی ڈوائل لینی ڈوائس لینی ہوگی جو کمپیوٹر کے اندر لگتی ہوتی ہے چھوٹی سی وائرلس روئس وہ اپ کو لازمی لینی پڑے گی یا لیپ ٹاپ کے اندر تو اپ کو یہ چیز نہیں لینی پڑے گی لیپ ٹاپ کے لیے اپ کو صرف اپ کو پی سی کے لیے لینی پڑے گی ٹھیک ہے لیپ ٹاپ کو تو خود ہی ہوٹسپوٹ والا سسٹم ہوتا ہے پی سی کا نہیں ہوتا پی سی کے اندر تو اپ چپ لگوائی ہوئی ہے نیٹ ورک والی پھر اپ نے یہ یو ایس بی والی وائرلس نہیں لینی ڈوائس ٹھیک ہے
+
+
+[Locl Public](https://drive.google.com/drive/folders/1d8Bn4Tz_xiPNNAAceKtKvxT1lRqSRAED?usp=sharing)
+
+
+[MyPublicWiFi](https://mypublicwifi.com/publicwifi/en/index.html)
+
+[connectify me](https://connectify.me/)
 
 
 
