@@ -59,28 +59,27 @@ vc.py / tts.py
 
 2. Inside this method, remove the original lines:
 
-
+```bash
 tts.py File coding
 
 for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "tokenizer.json", "conds.pt"]:
             local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
+```
 
 
-
-
-
+```bash
 # vc.py File coding
 
 for fpath in ["s3gen.safetensors", "conds.pt"]:
     local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
-
+```
 
 3. Replace them with this code:
 
 
 
 
-
+```bash
 # tts.py File coding Update
 
 
@@ -90,15 +89,16 @@ for fpath in ["ve.safetensors", "t3_cfg.safetensors", "s3gen.safetensors", "toke
             local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← تمہارا فولڈر path
 
         return cls.from_local(Path(local_path).parent, device
+```
 
 
-
-
+```bash
 # vc.py File coding Update
 
 for fpath in ["s3gen.safetensors", "conds.pt"]:
     print(f"Offline mode: using local file {fpath}")
     local_path = Path(r"C:\Users\Mr_Nomi\.cache\huggingface\hub\models--nzgnzg73--chatterbox\snapshots\a68f4fc2892ceff1b9ad82893935a7b4e85dff59") / fpath  # ← یہاں اپنا فولڈر پاتھ دو
+```
 
 # Pass the s3gen_cfg to from_local
 return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
@@ -176,6 +176,8 @@ return cls.from_local(Path(local_path).parent, device, s3gen_cfg=s3gen_cfg)
 
 ### 1. Clone the Repository
 
+
+[Python 3.10.11](https://www.python.org/downloads/release/python-31011/)
 Open your terminal or command prompt and clone the repository.
 
 ```bash
@@ -187,14 +189,16 @@ cd ChatterboxToolkitUI
 
 ### 2. Set Up a Python Virtual Environment
 
+
+[Python 3.10.11](https://www.python.org/downloads/release/python-31011/)
+
+
 Create a virtual environment using python 3.11 to avoid dependency conflicts
 
 ```bash
 py -3.10 -m venv venv
 
 ```
-
-[dPython 3.10.11](https://www.python.org/downloads/release/python-31011/)
 
 
 ### 3. Activate the virtual environment.
@@ -214,10 +218,6 @@ pip install -r requirements.txt
 ```
 
 ### 5. Install Omegaconf
-
-Users with 10 series NVidia cards or AMD GPUs need to manually install the proper torch 2.6.0 versions.
-Otherwise just install from requirements.txt
-
 ```bash
 pip install omegaconf
 ```
@@ -229,6 +229,87 @@ With your virtual environment still active, run the script:
 python ChatterboxToolkitUI.py
 ```
 
+
+You have to run  (python ChatterboxToolkitUI.py)  in the code. When an error or problem occurs while running the code, you have to follow the following procedure:
+
+Step 1: When an error occurs, take the name of the error that is shown in the white circle (white circle) inside the picture (for example, a package name).
+
+Solution: You have to immediately write a new line: pip install ## and write the name of the error in front of it.
+
+ (Example: If the error is Omegaconf, you would type:
+
+## pip install Omegaconf
+
+Continuation: Once that package is installed, you need to re-run
+
+python ChatterboxToolkitUI.py
+
+(or related code).
+
+Repetition: If a new error occurs again, you would repeat the same process: pip install followed by the name of the new error.
+
+Final step: This process is to be repeated until all the necessary packages are installed and the code runs without any errors.
+
+
+:
+"If you didn't understand my previous instructions, let me explain it to you again with an example.
+Suppose you run the code 'python ChatterboxToolkitUI.py' and get the following error:
+ModuleNotFoundError: No module named 'transformers'
+
+This error can appear anywhere in the middle or at the end of the code. Now you need to know what to write after pip install.
+You have to pick up the name of the module inside the error, which is written in single quotes (' '). In this example, that name is 'transformers'.
+You would then write:
+
+## pip install transformers
+
+When it is successfully installed, you would run the code 'python ChatterboxToolkitUI.py' again.
+If you get another error or problem (which can appear anywhere at the end, as I mentioned last time), you would write pip install again and add the following in the new error  "Will write the name of the module that was installed.
+Will keep repeating this process and re-run the code after installation."
+Summary: My task is that whenever a ModuleNotFoundError occurs, I install the module name given inside single quotes via pip install and then run the next code, until all the necessary libraries are installed.
+
+
+
+
+
+
+آپ کو کوڈنگ میں (python ChatterboxToolkitUI.py) ## کو رن کرنا ہے۔ جب کوڈ رن کرتے ہوئے کوئی ایرر (Error) یا پرابلم آئے، تو آپ نے درج ذیل طریقہ اپنانا ہے:
+ * پہلا مرحلہ: ایرر آنے پر، اُس ایرر کا نام جو سفید دائرے (وائٹ گِلتارہ) مطلب جو پکچر کے اندر لگایا ہے  میں دکھایا گیا ہے (جیسے مثال کے طور پر کوئی پیکیج کا نام)، اُسے لینا ہے۔
+ * حل: آپ نے فوراً ایک نئی لائن لکھنی ہے: pip install ## اور اُس کے آگے وہ ایرر والا نام لکھ دینا ہے۔
+   (مثال: اگر ایرر آئے کہ Omegaconf، تو آپ لکھیں گے:
+
+##  pip install Omegaconf
+
+
+ * تسلسل: جب وہ پیکیج انسٹال ہو جائے، تو آپ کو دوبارہ 
+
+## python ChatterboxToolkitUI.py
+(یا متعلقہ کوڈ) کو رن کرنا ہے۔
+
+ * تکرار: اگر دوبارہ کوئی نیا ایرر آئے، تو آپ پھر سے یہی عمل دہرائیں گے: pip install اور اُس کے آگے نئے ایرر کا نام لکھیں گے۔
+ * آخری مرحلہ: یہ عمل تب تک دہراتے رہنا ہے جب تک سارے ضروری پیکیجز انسٹال نہ ہو جائیں اور کوڈ بغیر کسی ایرر کے چل جائے۔
+
+:
+"اگر آپ کو میری پچھلی ہدایات سمجھ نہیں آئیں تو میں آپ کو ایک مثال سے دوبارہ سمجھاتا ہوں۔
+فرض کریں کہ آپ نے 'python ChatterboxToolkitUI.py' کوڈ کو رن کیا اور درج ذیل ایرر (Error) آ گیا:
+ModuleNotFoundError: No module named 'transformers'
+
+یہ ایرر کوڈ کے درمیان میں یا آخر میں کہیں بھی ظاہر ہو سکتا ہے۔ اب آپ کو یہ جاننے کی ضرورت ہے کہ pip install کے بعد کیا لکھنا ہے۔
+آپ نے ایرر کے اندر موجود ماڈیول کا نام، جو کہ سنگل کوٹس (' ') کے اندر لکھا ہے، اُسے اُٹھانا ہے۔ اس مثال میں وہ نام 'transformers' ہے۔
+آپ پھر یوں لکھیں گے:
+## pip install transformers
+
+جب یہ کامیابی سے انسٹال ہو جائے گا، تو آپ دوبارہ 'python ChatterboxToolkitUI.py' کوڈ کو رن کر دیں گے۔
+اگر دوبارہ کوئی اور ایرر یا پرابلم آئے (جو کہ آخر میں کہیں بھی ظاہر ہو سکتا ہے، جیسا کہ میں نے پچھلی بار بتایا تھا)، تو آپ پھر سے pip install لکھیں گے اور اُس کے آگے نئے ایرر میں دیے گئے ماڈیول کا نام لکھ دیں گے۔
+یہ عمل دہراتے رہیں گے اور انسٹالیشن کے بعد کوڈ کو دوبارہ رن کریں گے۔"
+خلاصہ: میرا کام یہ ہے کہ جب بھی ModuleNotFoundError آئے، تو میں سنگل کوٹس کے اندر دیے گئے ماڈیول کے نام کو pip install کے ذریعے انسٹال کروں اور پھر اگلا کوڈ چلاؤں، جب تک کہ تمام ضروری لائبریریاں انسٹال نہ ہو جائیں۔
+
+
+
+
+python ChatterboxToolkitUI.py
+
+
+
 Once running, you will see output in your terminal like this:
 
 ```
@@ -238,7 +319,7 @@ Once running, you will see output in your terminal like this:
 Open the local URL in your web browser to use the application.
 
 
- * My Goal: Therefore, I uploaded a stable version here for personal use so I can maintain a version of the code that runs continuously in Colab without constant daily fixing.
+
 
 
 
