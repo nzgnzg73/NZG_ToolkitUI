@@ -65,7 +65,7 @@ cd ChatterboxToolkitUI
 [Python 3.10.11](https://www.python.org/downloads/release/python-31011/)
 
 
-Create a virtual environment using python 3.11 to avoid dependency conflicts
+Create a virtual environment using python 3.10 to avoid dependency conflicts
 
 ```bash
 py -3.10 -m venv venv
@@ -380,6 +380,8 @@ The links I have given you below are for you to download, if you don't download 
 
 [connectify me](https://connectify.me/)
 
+
+[rustdesk](https://github.com/rustdesk/rustdesk)
 
 
 -   **Single Generation**:
