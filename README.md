@@ -44,7 +44,7 @@ Thank you very much for your understanding and cooperation.
 
 
 
-## &#128279; Citation of the paper
+## &#128279; FIX
 
 ```bibtex
 🔧 Method 1 — Manually Edit the Code
@@ -74,7 +74,7 @@ for fpath in ["s3gen.safetensors", "conds.pt"]:
     local_path = hf_hub_download(repo_id=REPO_ID, filename=fpath)
 ```
 
-3. Replace them with this code:
+## 3. Replace them with this code:
 
 
 
