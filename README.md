@@ -340,7 +340,7 @@ if __name__ == "__main__":
 ## and replace it with this code:
 
 ```bash
-> if __name__ == "__main__":
+ if __name__ == "__main__":
     demo.queue().launch(share=False,server_name="0.0.0.0")
 
 ```
@@ -363,7 +363,7 @@ if __name__ == "__main__":
 
 
 ```bash
-> if __name__ == "__main__":
+ if __name__ == "__main__":
     demo.queue().launch(share=False,server_name="0.0.0.0")
 
 ```
@@ -385,7 +385,7 @@ The links I have given you below are for you to download, if you don't download 
 
 
 ```bash
-> if __name__ == "__main__":
+ if __name__ == "__main__":
     import asyncio
 import sys
 
