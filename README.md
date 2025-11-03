@@ -384,6 +384,16 @@ The links I have given you below are for you to download, if you don't download 
 [rustdesk](https://github.com/rustdesk/rustdesk)
 
 
+```bash
+> if __name__ == "__main__":
+    import asyncio
+import sys
+
+if sys.platform.startswith('win'):
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+```
+
+
 -   **Single Generation**:
     -   **Text-to-Speech (TTS)**: Generate high-quality speech from text using a reference audio file to clone the speaker's voice.
     -   **Voice Conversion (VC)**: Transfer the vocal characteristics of a reference speaker onto a source audio recording.
