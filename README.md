@@ -385,8 +385,7 @@ The links I have given you below are for you to download, if you don't download 
 
 
 ```bash
- if __name__ == "__main__":
-    import asyncio
+import asyncio
 import sys
 
 if sys.platform.startswith('win'):
