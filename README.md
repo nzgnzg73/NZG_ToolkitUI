@@ -44,6 +44,18 @@ Thank you very much for your understanding and cooperation.
 
 
 
+
+
+<img width="1577" height="1007" alt="1" src="https://github.com/user-attachments/assets/b5be4173-7c07-44e2-b477-8efb6a9ce36b" />
+
+
+
+## (2)
+
+
+<img width="1575" height="998" alt="2" src="https://github.com/user-attachments/assets/11ec37d4-a3d4-4338-9201-d0cc50038d36" />
+
+
 ## &#128101; Attributions
 
 ### 1. Clone the Repository
